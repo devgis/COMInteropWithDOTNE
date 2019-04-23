@@ -1,0 +1,26 @@
+HKCR
+{
+	IceCreamParlor.IceCreamMenu.1 = s 'IceCreamMenu Class'
+	{
+		CLSID = s '{58C289C2-6AAC-4B6C-9059-AB320AB4B95E}'
+	}
+	IceCreamParlor.IceCreamMenu = s 'IceCreamMenu Class'
+	{
+		CLSID = s '{58C289C2-6AAC-4B6C-9059-AB320AB4B95E}'
+		CurVer = s 'IceCreamParlor.IceCreamMenu.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {58C289C2-6AAC-4B6C-9059-AB320AB4B95E} = s 'IceCreamMenu Class'
+		{
+			ProgID = s 'IceCreamParlor.IceCreamMenu.1'
+			VersionIndependentProgID = s 'IceCreamParlor.IceCreamMenu'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{F90F3BD3-C31A-423D-B30F-21AA3609E2B2}'
+		}
+	}
+}

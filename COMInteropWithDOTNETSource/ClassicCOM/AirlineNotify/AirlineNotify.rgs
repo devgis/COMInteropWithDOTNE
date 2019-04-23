@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		{E28307F4-9272-4DD0-A564-765A0D8E91C4} = s 'AirlineNotify'
+		'AirlineNotify.EXE'
+		{
+			val AppID = s {E28307F4-9272-4DD0-A564-765A0D8E91C4}
+		}
+	}
+}

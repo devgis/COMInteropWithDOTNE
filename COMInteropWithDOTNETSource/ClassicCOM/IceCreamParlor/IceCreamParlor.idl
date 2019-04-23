@@ -1,0 +1,44 @@
+// IceCreamParlor.idl : IDL source for IceCreamParlor.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IceCreamParlor.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+	
+	[
+		object,
+		uuid(2CB18CBB-8EAC-4A2C-91B0-4CBDE0C4DC29),
+		dual,
+		helpstring("IIceCreamMenu Interface"),
+		pointer_default(unique)
+	]
+	interface IIceCreamMenu : IDispatch
+	{
+		[propget, id(1), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		[id(2), helpstring("method AddIceCreamtoMenu")] HRESULT AddFlavortoMenu([in] BSTR bstrNewFlavor);
+		[propget, id(DISPID_NEWENUM), helpstring("property _NewEnum"), restricted] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+		[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item([in] long lIndex, [out, retval] VARIANT *pVal);
+	};
+
+[
+	uuid(F90F3BD3-C31A-423D-B30F-21AA3609E2B2),
+	version(1.0),
+	helpstring("IceCreamParlor 1.0 Type Library")
+]
+library ICECREAMPARLORLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(58C289C2-6AAC-4B6C-9059-AB320AB4B95E),
+		helpstring("IceCreamMenu Class")
+	]
+	coclass IceCreamMenu
+	{
+		[default] interface IIceCreamMenu;
+	};
+};

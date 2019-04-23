@@ -1,0 +1,40 @@
+// MyFlyer.idl : IDL source for MyFlyer.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MyFlyer.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(47E55C34-512E-4553-9E0F-0D201A126DE3),
+		dual,
+		helpstring("IFlyer Interface"),
+		pointer_default(unique)
+	]
+	interface IFlyer : IDispatch
+	{
+		[id(1), helpstring("method TakeOff")] HRESULT TakeOff([out,retval] BSTR* bstrTakeOffStatus);
+		[id(2), helpstring("method Fly")] HRESULT Fly([out,retval] BSTR* bstrFlyStatus);
+	};
+
+[
+	uuid(959DA507-4E86-4B16-B556-0301A944A1BC),
+	version(1.0),
+	helpstring("MyFlyer 1.0 Type Library")
+]
+library MYFLYERLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(D987239D-A1C9-4FAA-99DF-2192DC10DFA6),
+		helpstring("Flyer Class")
+	]
+	coclass Flyer
+	{
+		[default] interface IFlyer;
+	};
+};

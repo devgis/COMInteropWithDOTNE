@@ -1,0 +1,24 @@
+HKCR
+{
+	AirlineNotify.AirlineArrivalPager.1 = s 'AirlineArrivalPager Class'
+	{
+		CLSID = s '{494C4C98-FEA0-48F5-8045-8505588D5B16}'
+	}
+	AirlineNotify.AirlineArrivalPager = s 'AirlineArrivalPager Class'
+	{
+		CLSID = s '{494C4C98-FEA0-48F5-8045-8505588D5B16}'
+		CurVer = s 'AirlineNotify.AirlineArrivalPager.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {494C4C98-FEA0-48F5-8045-8505588D5B16} = s 'AirlineArrivalPager Class'
+		{
+			ProgID = s 'AirlineNotify.AirlineArrivalPager.1'
+			VersionIndependentProgID = s 'AirlineNotify.AirlineArrivalPager'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			val AppID = s '{E28307F4-9272-4DD0-A564-765A0D8E91C4}'
+			'TypeLib' = s '{8A87F63E-0F38-49C0-9E8C-98EDCAA84A60}'
+		}
+	}
+}

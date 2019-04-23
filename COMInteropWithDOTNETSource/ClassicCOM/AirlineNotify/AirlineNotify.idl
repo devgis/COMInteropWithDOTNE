@@ -1,0 +1,51 @@
+// AirlineNotify.idl : IDL source for AirlineNotify.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (AirlineNotify.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(00925ADF-942C-4087-B5A9-0AA48A0D9E37),
+		dual,
+		helpstring("IAirlineArrivalPager Interface"),
+		pointer_default(unique)
+	]
+	interface IAirlineArrivalPager : IDispatch
+	{
+		[id(1), helpstring("method AddArrivalDetails")] HRESULT AddArrivalDetails([in] BSTR bstrAirlineName, [in] BSTR bstrArrivalTerminal);
+	};
+
+[
+	uuid(8A87F63E-0F38-49C0-9E8C-98EDCAA84A60),
+	version(1.0),
+	helpstring("AirlineNotify 1.0 Type Library")
+]
+library AIRLINENOTIFYLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(665C790D-E54B-4C0C-8086-FA0A167E9166),
+		helpstring("_IAirlineArrivalPagerEvents Interface")
+	]
+	dispinterface _IAirlineArrivalPagerEvents
+	{
+		properties:
+		methods:
+		[id(1), helpstring("method OnAirlineArrivedEvent")] HRESULT OnAirlineArrivedEvent([in] BSTR bstrAirlineName, [in] BSTR bstrArrivalTerminal);
+	};
+
+	[
+		uuid(494C4C98-FEA0-48F5-8045-8505588D5B16),
+		helpstring("AirlineArrivalPager Class")
+	]
+	coclass AirlineArrivalPager
+	{
+		[default] interface IAirlineArrivalPager;
+		[default, source] dispinterface _IAirlineArrivalPagerEvents;
+	};
+};
